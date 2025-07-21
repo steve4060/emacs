@@ -23,9 +23,9 @@
 
 (defun st/get-default-font ()
   (cond
-   ("Iosevka Nerd Font Mono-20")))
+   ("Iosevka Nerd Font Mono-15")))
 
-(set-frame-font "Iosevka Nerd Font Mono-20" nil t)
+(set-frame-font "Iosevka Nerd Font Mono-15" nil t)
 
 (add-to-list 'default-frame-alist `(font . ,(st/get-default-font)))
 
