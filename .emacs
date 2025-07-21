@@ -5,6 +5,7 @@
 
 (load "~/.emacs.st/st.el")
 
+(load "~/.emacs.st/mail.el")
 (load "~/.emacs.st/misc-st.el")
 (load "~/.emacs.st/org-mode-st.el")
 (load "~/.emacs.st/autocommit-st.el")
