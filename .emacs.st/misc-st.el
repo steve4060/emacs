@@ -79,7 +79,7 @@ by using nxml's indentation rules."
   (save-excursion
     (nxml-mode)
     (goto-char begin)
-    (while (seasth-forward-regexp "\>[ \\t]*\<" nil t) 
+    (while (search-forward-regexp "\>[ \\t]*\<" nil t) 
       (backward-char) (insert "\n"))
     (indent-region begin end))
   (message "Ah, much better!"))
