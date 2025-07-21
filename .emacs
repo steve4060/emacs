@@ -3,11 +3,11 @@
 
 (add-to-list 'load-path "~/.emacs.local/")
 
-(load "~/.emacs.rc/rc.el")
+(load "~/.emacs.st/st.el")
 
-(load "~/.emacs.rc/misc-rc.el")
-(load "~/.emacs.rc/org-mode-rc.el")
-(load "~/.emacs.rc/autocommit-rc.el")
+(load "~/.emacs.st/misc-st.el")
+(load "~/.emacs.st/org-mode-st.el")
+(load "~/.emacs.st/autocommit-st.el")
 
 (setq inhibit-startup-screen t)
 (menu-bar-mode 0)
@@ -21,18 +21,18 @@
  split-width-threshold nil
  split-height-threshold 0)
 
-(defun rc/get-default-font ()
+(defun st/get-default-font ()
   (cond
    ("Iosevka Nerd Font Mono-20")))
 
 (set-frame-font "Iosevka Nerd Font Mono-20" nil t)
 
-(add-to-list 'default-frame-alist `(font . ,(rc/get-default-font)))
+(add-to-list 'default-frame-alist `(font . ,(st/get-default-font)))
 
-(rc/require-theme 'gruber-darker)
+(st/require-theme 'gruber-darker)
 
 ;;; ido
-(rc/require 'smex 'ido-completing-read+)
+(st/require 'smex 'ido-completing-read+)
 
 (require 'ido-completing-read+)
 
@@ -53,18 +53,18 @@
                          (c-toggle-comment-style -1)))
 
 ;;; Paredit
-(rc/require 'paredit)
+(st/require 'paredit)
 
-(defun rc/turn-on-paredit ()
+(defun st/turn-on-paredit ()
   (interactive)
   (paredit-mode 1))
 
-(add-hook 'emacs-lisp-mode-hook  'rc/turn-on-paredit)
-(add-hook 'clojure-mode-hook     'rc/turn-on-paredit)
-(add-hook 'lisp-mode-hook        'rc/turn-on-paredit)
-(add-hook 'common-lisp-mode-hook 'rc/turn-on-paredit)
-(add-hook 'scheme-mode-hook      'rc/turn-on-paredit)
-(add-hook 'racket-mode-hook      'rc/turn-on-paredit)
+(add-hook 'emacs-lisp-mode-hook  'st/turn-on-paredit)
+(add-hook 'clojure-mode-hook     'st/turn-on-paredit)
+(add-hook 'lisp-mode-hook        'st/turn-on-paredit)
+(add-hook 'common-lisp-mode-hook 'st/turn-on-paredit)
+(add-hook 'scheme-mode-hook      'st/turn-on-paredit)
+(add-hook 'racket-mode-hook      'st/turn-on-paredit)
 
 ;;; Emacs lisp
 (add-hook 'emacs-lisp-mode-hook
@@ -75,10 +75,10 @@
 
 ;;; uxntal-mode
 
-(rc/require 'uxntal-mode)
+(st/require 'uxntal-mode)
 
 ;;; Haskell mode
-(rc/require 'haskell-mode)
+(st/require 'haskell-mode)
 
 (setq haskell-process-type 'cabal-new-repl)
 (setq haskell-process-log t)
@@ -104,30 +104,30 @@
 (require 'c3-mode)
 
 ;;; Whitespace mode
-(defun rc/set-up-whitespace-handling ()
+(defun st/set-up-whitespace-handling ()
   (interactive)
   (whitespace-mode 1)
   (add-to-list 'write-file-functions 'delete-trailing-whitespace))
 
-(add-hook 'tuareg-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'c++-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'c-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'simpc-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'emacs-lisp-mode 'rc/set-up-whitespace-handling)
-(add-hook 'java-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'lua-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'rust-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'scala-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'markdown-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'haskell-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'python-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'erlang-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'asm-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'fasm-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'go-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'nim-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'yaml-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'porth-mode-hook 'rc/set-up-whitespace-handling)
+(add-hook 'tuareg-mode-hook 'st/set-up-whitespace-handling)
+(add-hook 'c++-mode-hook 'st/set-up-whitespace-handling)
+(add-hook 'c-mode-hook 'st/set-up-whitespace-handling)
+(add-hook 'simpc-mode-hook 'st/set-up-whitespace-handling)
+(add-hook 'emacs-lisp-mode 'st/set-up-whitespace-handling)
+(add-hook 'java-mode-hook 'st/set-up-whitespace-handling)
+(add-hook 'lua-mode-hook 'st/set-up-whitespace-handling)
+(add-hook 'rust-mode-hook 'st/set-up-whitespace-handling)
+(add-hook 'scala-mode-hook 'st/set-up-whitespace-handling)
+(add-hook 'markdown-mode-hook 'st/set-up-whitespace-handling)
+(add-hook 'haskell-mode-hook 'st/set-up-whitespace-handling)
+(add-hook 'python-mode-hook 'st/set-up-whitespace-handling)
+(add-hook 'erlang-mode-hook 'st/set-up-whitespace-handling)
+(add-hook 'asm-mode-hook 'st/set-up-whitespace-handling)
+(add-hook 'fasm-mode-hook 'st/set-up-whitespace-handling)
+(add-hook 'go-mode-hook 'st/set-up-whitespace-handling)
+(add-hook 'nim-mode-hook 'st/set-up-whitespace-handling)
+(add-hook 'yaml-mode-hook 'st/set-up-whitespace-handling)
+(add-hook 'porth-mode-hook 'st/set-up-whitespace-handling)
 
 ;;; display-line-numbers-mode
 (when (version<= "26.0.50" emacs-version)
@@ -136,8 +136,8 @@
 ;;; magit
 ;; magit requres this lib, but it is not installed automatically on
 ;; Windows.
-(rc/require 'cl-lib)
-(rc/require 'magit)
+(st/require 'cl-lib)
+(st/require 'magit)
 
 (setq magit-auto-revert-mode nil)
 
@@ -145,7 +145,7 @@
 (global-set-key (kbd "C-c m l") 'magit-log)
 
 ;;; multiple cursors
-(rc/require 'multiple-cursors)
+(st/require 'multiple-cursors)
 
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->")         'mc/mark-next-like-this)
@@ -163,7 +163,7 @@
 (setq dired-mouse-drag-files t)
 
 ;;; helm
-(rc/require 'helm 'helm-git-grep 'helm-ls-git)
+(st/require 'helm 'helm-git-grep 'helm-ls-git)
 
 (setq helm-ff-transformer-show-only-basename nil)
 
@@ -175,7 +175,7 @@
 (global-set-key (kbd "C-c h r") 'helm-recentf)
 
 ;;; yasnippet
-(rc/require 'yasnippet)
+(st/require 'yasnippet)
 
 (require 'yasnippet)
 
@@ -185,11 +185,11 @@
 (yas-global-mode 1)
 
 ;;; word-wrap
-(defun rc/enable-word-wrap ()
+(defun st/enable-word-wrap ()
   (interactive)
   (toggle-word-wrap 1))
 
-(add-hook 'markdown-mode-hook 'rc/enable-word-wrap)
+(add-hook 'markdown-mode-hook 'st/enable-word-wrap)
 
 ;;; nxml
 (add-to-list 'auto-mode-alist '("\\.html\\'" . nxml-mode))
@@ -201,19 +201,19 @@
 (setq tramp-auto-save-directory "/tmp")
 
 ;;; powershell
-(rc/require 'powershell)
+(st/require 'powershell)
 (add-to-list 'auto-mode-alist '("\\.ps1\\'" . powershell-mode))
 (add-to-list 'auto-mode-alist '("\\.psm1\\'" . powershell-mode))
 
 ;;; eldoc mode
-(defun rc/turn-on-eldoc-mode ()
+(defun st/turn-on-eldoc-mode ()
   (interactive)
   (eldoc-mode 1))
 
-(add-hook 'emacs-lisp-mode-hook 'rc/turn-on-eldoc-mode)
+(add-hook 'emacs-lisp-mode-hook 'st/turn-on-eldoc-mode)
 
 ;;; Company
-(rc/require 'company)
+(st/require 'company)
 (require 'company)
 
 (global-company-mode)
@@ -224,28 +224,28 @@
             (company-mode 0)))
 
 ;;; Typescript
-(rc/require 'typescript-mode)
+(st/require 'typescript-mode)
 (add-to-list 'auto-mode-alist '("\\.mts\\'" . typescript-mode))
 
 ;;; Tide
-(rc/require 'tide)
+(st/require 'tide)
 
-(defun rc/turn-on-tide-and-flycheck ()  ;Flycheck is a dependency of tide
+(defun st/turn-on-tide-and-flycheck ()  ;Flycheck is a dependency of tide
   (interactive)
   (tide-setup)
   (flycheck-mode 1))
 
-(add-hook 'typescript-mode-hook 'rc/turn-on-tide-and-flycheck)
+(add-hook 'typescript-mode-hook 'st/turn-on-tide-and-flycheck)
 
 ;;; Proof general
-(rc/require 'proof-general)
+(st/require 'proof-general)
 (add-hook 'coq-mode-hook
           '(lambda ()
              (local-set-key (kbd "C-c C-q C-n")
                             (quote proof-assert-until-point-interactive))))
 
 ;;; LaTeX mode
-(rc/require 'auctex)
+(st/require 'auctex)
 (add-hook 'tex-mode-hook
           (lambda ()
             (interactive)
@@ -254,7 +254,7 @@
 (setq font-latex-fontify-sectioning 'color)
 
 ;;; Move Text
-(rc/require 'move-text)
+(st/require 'move-text)
 (global-set-key (kbd "M-p") 'move-text-up)
 (global-set-key (kbd "M-n") 'move-text-down)
 
@@ -262,7 +262,7 @@
 (add-to-list 'auto-mode-alist '("\\.ebi\\'" . lisp-mode))
 
 ;;; Packages that don't require configuration
-(rc/require
+(st/require
  'scala-mode
  'd-mode
  'yaml-mode
@@ -295,7 +295,7 @@
  'sml-mode
  )
 
-(load "~/.emacs.shadow/shadow-rc.el" t)
+(load "~/.emacs.shadow/shadow-st.el" t)
 
 (defun astyle-buffer (&optional justify)
   (interactive)
