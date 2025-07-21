@@ -293,6 +293,8 @@
  'typescript-mode
  'rfc-mode
  'sml-mode
+ 'mu
+ 'mu4x
  )
 
 (load "~/.emacs.shadow/shadow-st.el" t)
